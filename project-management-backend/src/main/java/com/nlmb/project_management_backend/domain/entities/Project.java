@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -26,6 +27,14 @@ public class Project {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(mappedBy = "project", cascade = {
+            CascadeType.REMOVE, CascadeType.PERSIST
+    })
+    private List<Task> tasks;
+
+    @Column(name = "start_date")
+    private LocalDateTime startDate;
 
     @Column(name = "due_date")
     private LocalDateTime dueDate;
