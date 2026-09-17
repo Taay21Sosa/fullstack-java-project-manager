@@ -36,8 +36,8 @@ public class Project {
     @Column(name = "start_date")
     private LocalDateTime startDate;
 
-    @Column(name = "due_date")
-    private LocalDateTime dueDate;
+    @Column(name = "end_date")
+    private LocalDateTime endDate;
 
     @Column(name = "status", nullable = false)
     private Status status;
